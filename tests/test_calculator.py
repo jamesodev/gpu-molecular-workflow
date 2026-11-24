@@ -10,9 +10,9 @@ from torchmdnet.calculators import External
 from torchmdnet.models.model import load_model, create_model
 
 from utils import create_example_batch
+@pytest.mark.parametrize("use_cuda_graphs", [True, False])
 
 
-@pytest.mark.parametrize("box", [None, torch.eye(3)])
 @pytest.mark.parametrize("use_cuda_graphs", [True, False])
 def test_compare_forward(box, use_cuda_graphs):
     from copy import deepcopy
